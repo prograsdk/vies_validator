@@ -1,26 +1,22 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'vies_validator/version'
+$:.push File.expand_path("../lib", __FILE__)
 
-Gem::Specification.new do |spec|
-  spec.name          = "vies_validator"
-  spec.version       = ViesValidator::VERSION
-  spec.authors       = ["Frederik Spang"]
-  spec.email         = ["frederik@progras.dk"]
+# Maintain your gem's version:
+require "vies_validator/version"
 
-  spec.summary       = %q{Automatic validator for VIES - VAT-number validation, automated, automatically processed in background by ActiveJob.}
-  spec.homepage      = "https://progras.dk/"
-  spec.license       = "MIT"
+# Describe your gem and declare its dependencies:
+Gem::Specification.new do |s|
+  s.name        = "vies_validator"
+  s.version     = ViesValidator::VERSION
+  s.authors     = ["Frederik Spang"]
+  s.email       = ["frederik@frederikspang.dk"]
+  s.homepage    = "TODO"
+  s.summary     = "TODO: Summary of ViesValidator."
+  s.description = "TODO: Description of ViesValidator."
+  s.license     = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  spec.add_development_dependency "bundler", "~> 1.14"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
+  s.add_dependency "rails", "~> 5.1.0.rc1"
+
+  s.add_development_dependency "sqlite3"
 end
